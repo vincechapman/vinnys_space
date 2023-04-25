@@ -23,7 +23,7 @@ function handleAddWindow(invert: boolean) {
 
     let newElem4 = document.createElement("iframe");
     newElem4.classList.add("flex-grow-1", "game-display", "fade-in");
-    newElem4.src = `http://localhost:3000/test/${currentWindowIndex}`;
+    newElem4.src = `http://localhost:3000/widgets/test/${currentWindowIndex}`;
     newElem4.style.opacity = "0";
     newElem4.onload = () => {
         newElem4.style.opacity = "1";
