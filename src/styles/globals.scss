@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    width: 100vw;
+    overflow-x: hidden
+}
+
+main {
+    min-height: 100vh;
+}
+
+.game-window {
+    transition: transform 0.5s ease-in-out;
+}
+
+.game-display-background {
+    background: black;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+@media only screen and (min-width: 600px) {
+    .game-display-background {
+        min-height: 90vh;
+        min-width: 70vh;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+}
+
+.move-off-right {
+    transform: translateX(100vw);
+}
+
+.move-to-center {
+    transform: translateX(0);
+}
+
+.move-off-left {
+    transform: translateX(-100vw);
+}
+
+.fade-in {
+    transition: opacity 0.5s ease-in-out;
+}
+
+#button-bar {
+    z-index: 1000;
+}
