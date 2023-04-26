@@ -6,6 +6,7 @@ body {
 
 main {
     min-height: 100vh;
+    //min-height: calc(var(--vh, 1vh) * 100);
 }
 
 .game-window {
@@ -51,7 +52,11 @@ main {
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
 
 // Bootstrap overrides
-.vh-100 {
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
-}
+//.min-vh-100 {
+//    min-height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+//    min-height: calc(var(--vh, 1vh) * 100);
+//}
+//.vh-100 {
+//    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+//    height: calc(var(--vh, 1vh) * 100);
+//}

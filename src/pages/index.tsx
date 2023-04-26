@@ -20,7 +20,22 @@ function handleAddWindow(invert: boolean) {
     newElem2.classList.add("m-auto", "overflow-visible");
 
     let newElem3 = document.createElement("div");
-    newElem3.classList.add("game-display-background", "d-flex", "shadow");
+    newElem3.classList.add("game-display-background", "d-flex", "shadow", "position-relative");
+
+    let spinnerDiv = document.createElement("div");
+    spinnerDiv.classList.add("d-flex", "justify-content-center", "position-absolute", "h-100", "w-100");
+
+    let spinnerElem = document.createElement("div");
+    spinnerElem.classList.add("spinner-border", "m-auto");
+    spinnerElem.role = "status";
+
+    let spinnerSpan = document.createElement("span");
+    spinnerSpan.classList.add("visually-hidden");
+    spinnerSpan.innerText = "Loading...";
+
+    spinnerDiv.appendChild(spinnerElem);
+    spinnerElem.appendChild(spinnerSpan);
+    newElem3.appendChild(spinnerDiv);
 
     let newElem4 = document.createElement("iframe");
     newElem4.classList.add("flex-grow-1", "game-display", "fade-in");
@@ -30,6 +45,7 @@ function handleAddWindow(invert: boolean) {
         newElem4.style.opacity = "1";
     }
     newElem4.title = "W3Schools Free Online Web Tutorials";
+    newElem4.style.zIndex = "100";
 
     newElem1.appendChild(newElem2);
     newElem2.appendChild(newElem3);
@@ -111,14 +127,14 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Script id={"setWindowCSSProperties-script"} strategy="lazyOnload">
-                {`
-                    // First we get the viewport height, and we multiply it by 1% to get a value for a vh unit
-                    vh = window.innerHeight * 0.01;
-                    // Then we set the value in the --vh custom property to the root of the document
-                    document.documentElement.style.setProperty('--vh', vh + "px");
-                `}
-            </Script>
+            {/*<Script id={"setWindowCSSProperties-script"} strategy="lazyOnload">*/}
+            {/*    {`*/}
+            {/*        // First we get the viewport height, and we multiply it by 1% to get a value for a vh unit*/}
+            {/*        vh = window.innerHeight * 0.01;*/}
+            {/*        // Then we set the value in the --vh custom property to the root of the document*/}
+            {/*        document.documentElement.style.setProperty('--vh', vh + "px");*/}
+            {/*    `}*/}
+            {/*</Script>*/}
             <main>
                 <div id={"button-bar"}
                      className={"bg-primary bg-opacity-25 position-absolute vw-100 bottom-0 d-flex p-2 justify-content-evenly"}>
@@ -131,13 +147,7 @@ export default function Home() {
                 overflow: hidden;
                 background: ${darkMode ? "radial-gradient(circle, #1b1b38, black)" : "radial-gradient(circle, white, lightgrey)"};
               }
-
-              .vh-100 {
-                height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-                height: calc(var(--vh, 1vh) * 100);
-              }
-            `
-            }</style>
+            `}</style>
         </>
     )
 }
