@@ -101,6 +101,15 @@ function handleMoveLeft(e: any) {
 
 }
 
+function handlePageLoad(e: any) {
+    e.preventDefault();
+
+    // First we get the viewport height, and we multiply it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
 export default function Home() {
     return (
         <>
@@ -110,7 +119,7 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <main>
+            <main onLoad={handlePageLoad}>
                 <div id={"button-bar"}
                      className={"bg-primary bg-opacity-25 position-absolute vw-100 bottom-0 d-flex p-2 justify-content-evenly"}>
                     <button className={"btn btn-info"} onClick={handleMoveLeft}>Left</button>
