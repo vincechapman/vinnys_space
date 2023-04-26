@@ -131,6 +131,11 @@ export default function Home() {
                 overflow: hidden;
                 background: ${darkMode ? "radial-gradient(circle, #1b1b38, black)" : "radial-gradient(circle, white, lightgrey)"};
               }
+
+              .vh-100 {
+                height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+                height: calc(var(--vh, 1vh) * 100);
+              }
             `
             }</style>
         </>
