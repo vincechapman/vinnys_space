@@ -160,7 +160,7 @@ export default function Home() {
             {/*</Script>*/}
             <main>
                 <div id={"button-bar"}
-                     className={"bg-primary bg-opacity-25 position-absolute vw-100 d-flex p-2 justify-content-evenly"}>
+                     className={"bg-primary bg-opacity-25 position-fixed vw-100 d-flex p-2 justify-content-evenly"}>
                     <button className={"btn btn-info"} onClick={handleMoveLeft}>Left</button>
                     <button className={"btn btn-secondary"} onClick={handleMoveRight}>Right</button>
                 </div>
