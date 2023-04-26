@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Script from "next/script";
 import widgets from "@/lib/widgetLoader";
 
 let currentWindowIndex = 0;
@@ -43,7 +42,6 @@ function handleAddWindow(invert: boolean) {
 
 
     // Adding logo
-
     let widgetLogo = widgets[currentWindowIndex - 1].logo;
     if (widgetLogo) {
         let logoDiv = document.createElement("div");
@@ -160,9 +158,13 @@ export default function Home() {
             {/*</Script>*/}
             <main>
                 <div id={"button-bar"}
-                     className={"bg-primary bg-opacity-25 position-fixed vw-100 d-flex p-2 justify-content-evenly"}>
-                    <button className={"btn btn-info"} onClick={handleMoveLeft}>Left</button>
-                    <button className={"btn btn-secondary"} onClick={handleMoveRight}>Right</button>
+                     className={"bg-primary bg-opacity-25 position-fixed vw-100 d-flex p-2 justify-content-between"}>
+                    <button className={"btn btn-warning"} onClick={handleMoveLeft}>
+                        <i className="bi bi-arrow-left-circle-fill"></i>
+                    </button>
+                    <button className={"btn btn-warning"} onClick={handleMoveRight}>
+                        <i className="bi bi-arrow-right-circle-fill"></i>
+                    </button>
                 </div>
             </main>
             <style jsx>{`
@@ -170,7 +172,6 @@ export default function Home() {
                 overflow: hidden;
                 background: ${darkMode ? "radial-gradient(circle, #1b1b38, black)" : "radial-gradient(circle, white, lightgrey)"};
               }
-              
               body {
                 overflow-y: hidden;
               }

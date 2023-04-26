@@ -14,6 +14,7 @@ const widgets = [
     {
         name: "Memory Game",
         path: "/memoryGame",
+        logo: null,
         colour: "lime"
     }
 ]
