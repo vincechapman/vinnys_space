@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Script from "next/script";
+import widgets from "@/lib/widgetLoader";
 
 let currentWindowIndex = 0;
-let maxWindowIndex = 100;
+let maxWindowIndex = widgets.length;
 let minWindowIndex = 0;
 let timeoutId: any;
 let buttonClickDelay = 500;
@@ -39,12 +40,12 @@ function handleAddWindow(invert: boolean) {
 
     let newElem4 = document.createElement("iframe");
     newElem4.classList.add("flex-grow-1", "game-display", "fade-in");
-    newElem4.src = `http${process.env.NODE_ENV === "production" ? "s" : ""}://${process.env.NEXT_PUBLIC_HOST}/widgets/test/${currentWindowIndex}`;
+    newElem4.src = `http${process.env.NODE_ENV === "production" ? "s" : ""}://${process.env.NEXT_PUBLIC_HOST}/widgets${widgets[currentWindowIndex - 1].path}`;
     newElem4.style.opacity = "0";
     newElem4.onload = () => {
         newElem4.style.opacity = "1";
     }
-    newElem4.title = "W3Schools Free Online Web Tutorials";
+    newElem4.title = widgets[currentWindowIndex - 1].name;
     newElem4.style.zIndex = "100";
 
     newElem1.appendChild(newElem2);
@@ -146,6 +147,10 @@ export default function Home() {
               main {
                 overflow: hidden;
                 background: ${darkMode ? "radial-gradient(circle, #1b1b38, black)" : "radial-gradient(circle, white, lightgrey)"};
+              }
+              
+              body {
+                overflow-y: hidden;
               }
             `}</style>
         </>
