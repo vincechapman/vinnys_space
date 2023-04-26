@@ -22,12 +22,15 @@ function handleAddWindow(invert: boolean) {
 
     let newElem3 = document.createElement("div");
     newElem3.classList.add("game-display-background", "d-flex", "shadow", "position-relative");
+    newElem3.style.background = `radial-gradient(circle, hsla(0, 0%, 50%, 0.8), hsla(0, 0%, 0%, 0.85)), ${widgets[currentWindowIndex - 1].colour ? widgets[currentWindowIndex - 1].colour : "#2f2f2f"}`;
+
+    // Adding spinner loader
 
     let spinnerDiv = document.createElement("div");
     spinnerDiv.classList.add("d-flex", "justify-content-center", "position-absolute", "h-100", "w-100");
 
     let spinnerElem = document.createElement("div");
-    spinnerElem.classList.add("spinner-border", "m-auto");
+    spinnerElem.classList.add("spinner-border", "m-auto", "text-light");
     spinnerElem.role = "status";
 
     let spinnerSpan = document.createElement("span");
@@ -37,6 +40,25 @@ function handleAddWindow(invert: boolean) {
     spinnerDiv.appendChild(spinnerElem);
     spinnerElem.appendChild(spinnerSpan);
     newElem3.appendChild(spinnerDiv);
+
+
+    // Adding logo
+
+    let widgetLogo = widgets[currentWindowIndex - 1].logo;
+    if (widgetLogo) {
+        let logoDiv = document.createElement("div");
+        logoDiv.classList.add("position-absolute", "w-100", "p-5", "mt-5", "text-center");
+
+        let logoImg = document.createElement("img");
+        logoImg.classList.add("mx-auto", "w-100");
+        logoImg.style.maxWidth = "300px";
+
+        logoImg.src = "/widget_logos/" + widgetLogo;
+
+        logoDiv.appendChild(logoImg);
+        newElem3.appendChild(logoDiv);
+    }
+
 
     let newElem4 = document.createElement("iframe");
     newElem4.classList.add("flex-grow-1", "game-display", "fade-in");
