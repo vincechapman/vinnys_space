@@ -2,6 +2,24 @@ const localBaseUrl = `http${process.env.NODE_ENV === "production" ? "s" : ""}://
 
 const widgets = [
     {
+        name: "Zoom Quilt",
+        path: "https://zoomquilt.org/",
+        logo: null,
+        colour: "orange"
+    },
+    {
+        name: "Pug in a rug",
+        path: "https://puginarug.com/",
+        logo: null,
+        colour: "beige"
+    },
+    {
+        name: "Paint",
+        path: "https://jacksonpollock.org/",
+        logo: null,
+        colour: "blue"
+    },
+    {
         name: "Test 1",
         path: localBaseUrl + "/test/1",
         logo: null,
@@ -16,12 +34,6 @@ const widgets = [
     {
         name: "Memory Game",
         path: localBaseUrl + "/memoryGame",
-        logo: null,
-        colour: "lime"
-    },
-    {
-        name: "External site test - zoom quilt",
-        path: "https://zoomquilt.org/",
         logo: null,
         colour: "lime"
     }

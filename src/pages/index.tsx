@@ -43,19 +43,22 @@ function handleAddWindow(invert: boolean) {
 
     // Adding logo
     let widgetLogo = widgets[currentWindowIndex - 1].logo;
+    let logoDiv = document.createElement("div");
+    logoDiv.classList.add("position-absolute", "w-100", "p-5", "mt-5", "text-center");
     if (widgetLogo) {
-        let logoDiv = document.createElement("div");
-        logoDiv.classList.add("position-absolute", "w-100", "p-5", "mt-5", "text-center");
-
         let logoImg = document.createElement("img");
         logoImg.classList.add("mx-auto", "w-100");
         logoImg.style.maxWidth = "300px";
-
         logoImg.src = "/widget_logos/" + widgetLogo;
-
         logoDiv.appendChild(logoImg);
-        newElem3.appendChild(logoDiv);
+    } else {
+        let logoText = document.createElement("h2");
+        logoText.classList.add("mx-auto", "w-100", "text-light", "fw-bold");
+        logoText.style.maxWidth = "300px";
+        logoText.innerText = widgets[currentWindowIndex - 1].name;
+        logoDiv.appendChild(logoText);
     }
+    newElem3.appendChild(logoDiv);
 
 
     let newElem4 = document.createElement("iframe");
